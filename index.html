@@ -1,3 +1,37 @@
 <html>
-    <head><title>Javascript - Grocery List Demo</title></head>
+  <head>
+    <title>Javascript - Grocery List Demo</title>
+  </head>
+
+  <body>
+    <input type="text" id="additem" />
+    <input type="button" id="addNew" value="Add Item" />
+    <div class="output"></div>
+
+    <script>
+      let myList = ["bananas", "milk", "apples", "eggs", "cake"];
+      const btnAdd = document.querySelector("#addNew");
+      btnAdd.addEventListener("click", function () {
+        console.log("clicked");
+      });
+
+      window.onload = build;
+
+      function build() {
+        console.log("ready");
+        const tbl = document.createElement("table");
+        for (let i = 0; i < myList.length; i++) {
+          const row = document.createElement("tr");
+          row.ind = i;
+          const cell1 = document.createElement("td");
+          cell1.innerHTML = myList[i];
+          row.appendChild(cell1);
+
+          const cell2 = document.createElement("td");
+          tbl.appendChild(row);
+        }
+        console.log(tbl);
+      }
+    </script>
+  </body>
 </html>
